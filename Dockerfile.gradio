@@ -1,0 +1,12 @@
+FROM python:3.9-slim-bullseye
+
+WORKDIR /app
+
+COPY requirements-gradio.txt .
+RUN pip install --no-cache-dir -r requirements-gradio.txt
+
+COPY gradio_app.py .
+
+EXPOSE 7860
+
+CMD ["python", "gradio_app.py"]
